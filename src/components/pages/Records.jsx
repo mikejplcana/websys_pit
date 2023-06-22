@@ -13,7 +13,7 @@ export default function Records() {
 
   return (
     <div>
-      <h1>Admitted Patients</h1>
+      <h1>Admitted Patient</h1>
       <table>
         <thead>
           <tr>
