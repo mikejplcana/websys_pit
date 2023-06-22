@@ -1,9 +1,5 @@
 import React from 'react';
-import { AppBar } from '@mui/material';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
+import NavBar from '../ui/NavBar';
 
 function Home() {
     const handleSubmit = (event) => {
@@ -24,21 +20,7 @@ function Home() {
         });
       };
   return (
-    <div><AppBar position="fixed">
-        <Toolbar>
-            <Typography variant="h6" style={{ flexGrow: 1 }}>
-              XYZH App
-            </Typography>
-            <Button color="inherit" component={Link} to="/">
-              Home
-            </Button>
-            <Button color="inherit">About XYZH</Button>
-            <Button color="inherit">Forms</Button>
-            <Button color="inherit" component={Link} to="/records">
-              Records
-            </Button>
-          </Toolbar>
-    </AppBar>
+    <div> <NavBar />
     <div style={{ paddingTop: '64px' }}>
         <h4>Entry Card</h4>
         <form style={{ display: 'flex', flexDirection: 'column' }} onSubmit={handleSubmit}>
