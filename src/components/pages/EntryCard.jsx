@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import NavBar from '../ui/NavBar';
 
 function EntryCard() {
   const [data, setData] = useState([]);
@@ -12,6 +13,8 @@ function EntryCard() {
 
   return (
     <div>
+        <NavBar />
+        <h2>Entry Cards</h2>
       <table>
         <thead>
           <tr>
