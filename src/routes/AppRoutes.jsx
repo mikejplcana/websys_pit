@@ -7,6 +7,7 @@ import CheckUp from "../components/pages/CheckUp";
 import RegularP from "../components/pages/RegularP";
 import OperatedP from "../components/pages/OperatedP";
 import DischargedP from "../components/pages/DischargedP";
+import FormCheckUp from "../components/pages/FormCheckUp";
 
 
 export default function AppRoutes() {
@@ -20,6 +21,7 @@ export default function AppRoutes() {
         <Route path="/regular-patients" element={<RegularP />} />
         <Route path="/operated-patients" element={<OperatedP />} />
         <Route path="/discharged-patients" element={<DischargedP />} />
+        <Route path="/check-up" element={<FormCheckUp />} />
       </Routes>
     </BrowserRouter>
   );
