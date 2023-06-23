@@ -11,32 +11,47 @@ const CheckUpForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
-    // You can access the form values using the state variables
-    console.log({
+
+    // Create an object with the form data
+    const formData = {
       checkUpDate,
       patientNumber,
       diagnosis,
       status,
       treatment,
       doctorNumber
-    });
-    // Reset form fields after submission
-    setCheckUpDate('');
-    setPatientNumber('');
-    setDiagnosis('');
-    setStatus('');
-    setTreatment('');
-    setDoctorNumber('');
+    };
+
+    // Make an HTTP POST request to the PHP file
+    fetch("http://localhost/saveEntryCheckUp.php", {
+      method: 'POST',
+      body: JSON.stringify(formData)
+    })
+      .then(response => {
+        if (response.ok) {
+          // Reset form fields after successful submission
+          setCheckUpDate('');
+          setPatientNumber('');
+          setDiagnosis('');
+          setStatus('');
+          setTreatment('');
+          setDoctorNumber('');
+          console.log('Form submitted successfully!');
+        } else {
+          console.error('Form submission failed.');
+        }
+      })
+      .catch(error => {
+        console.error('Form submission failed.', error);
+      });
   };
 
   return (
     <div>
-        <NavBar />
-        <div style={{ paddingTop: '64px' }}>
-
-      <h2>CHECK UP FORM</h2>
-      <form style={{ display: 'flex', flexDirection: 'column' }} onSubmit={handleSubmit}>
+      <NavBar />
+      <div style={{ paddingTop: '64px' }}>
+        <h2>CHECK UP FORM</h2>
+        <form style={{ display: 'flex', flexDirection: 'column' }} onSubmit={handleSubmit}>
         <label htmlFor="checkUpDate">Check-up Date:</label>
         <input
           type="date"
@@ -90,14 +105,10 @@ const CheckUpForm = () => {
           onChange={(e) => setDoctorNumber(e.target.value)}
           required
         />
-        
-
-        <button type="submit">Submit</button>
-      </form>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
-    </div>
-
-    
   );
 };
 

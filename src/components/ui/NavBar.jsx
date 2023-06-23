@@ -23,20 +23,20 @@ function NavBar() {
     switch (dropdownType) {
       case 'forms':
         return (
-          <Menu
+          <Menu 
             id="forms-menu"
             anchorEl={anchorEl}
             keepMounted
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
-            <MenuItem onClick={handleClose} component={Link} to="/check-up">
+            <MenuItem style={{ fontFamily: 'Google Sans'}} onClick={handleClose} component={Link} to="/check-up">
               Check-Up
             </MenuItem>
-            <MenuItem onClick={handleClose} component={Link} to="/admission">
+            <MenuItem style={{ fontFamily: 'Google Sans'}} onClick={handleClose} component={Link} to="/admission">
               Admission
             </MenuItem>
-            <MenuItem onClick={handleClose} component={Link} to="/discharge">
+            <MenuItem style={{ fontFamily: 'Google Sans'}} onClick={handleClose} component={Link} to="/discharge">
               Discharge
             </MenuItem>
           </Menu>
@@ -50,34 +50,34 @@ function NavBar() {
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
-            <MenuItem onClick={handleClose} component={Link} to="/entry-cards">
+           <MenuItem style={{ fontFamily: 'Google Sans'}} onClick={handleClose} component={Link} to="/entry-cards">
               Entry Cards
             </MenuItem>
-            <MenuItem onClick={handleClose} component={Link} to="/check-ups">
+            <MenuItem style={{ fontFamily: 'Google Sans'}} onClick={handleClose} component={Link} to="/check-ups">
               Check-Ups
             </MenuItem>
-            <MenuItem
+            <MenuItem style={{ fontFamily: 'Google Sans'}}
               onClick={handleClose}
               component={Link}
               to="/regular-patients"
             >
               Regular Patients
             </MenuItem>
-            <MenuItem
+            <MenuItem style={{ fontFamily: 'Google Sans'}}
               onClick={handleClose}
               component={Link}
               to="/admitted-patients"
             >
               Admitted Patients
             </MenuItem>
-            <MenuItem
+            <MenuItem style={{ fontFamily: 'Google Sans'}}
               onClick={handleClose}
               component={Link}
               to="/operated-patients"
             >
               Operated Patients
             </MenuItem>
-            <MenuItem
+            <MenuItem style={{ fontFamily: 'Google Sans'}}
               onClick={handleClose}
               component={Link}
               to="/discharged-patients"
@@ -95,16 +95,41 @@ function NavBar() {
     <div>
       <AppBar position="fixed">
         <Toolbar>
-          <Typography variant="h6" style={{ flexGrow: 1 }}>
+          <Button color="inherit" component={Link} to="/">
+          <img src="public/logozoomed.png" alt="Home" style={{ width: '40px', height: '40px' }} />
+          </Button>
+          <Typography variant="h6" style={{ fontFamily: 'Google Sans', flexGrow: 1, textAlign: 'left' }}>
             XYZ Hospital Management System
           </Typography>
-          <Button color="inherit" component={Link} to="/">
-            Home
+          <Button style={{ fontFamily: 'Google Sans'}}
+            color="inherit"
+            aria-controls="about-menu"
+            aria-haspopup="true"
+            onClick={(event) => handleClick(event, 'about')}
+          >
+            About XYZH
           </Button>
-          <Button color="inherit" component={Link} to="/about">
-  About XYZH
-</Button>
-          <Button
+          <Menu
+            id="about-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl) && dropdownType === 'about'}
+            onClose={handleClose}
+          >
+            <MenuItem style={{ fontFamily: 'Google Sans'}} onClick={handleClose} component={Link} to="/departments">
+              Departments
+            </MenuItem>
+            <MenuItem style={{ fontFamily: 'Google Sans'}} onClick={handleClose} component={Link} to="/rooms">
+              Rooms
+            </MenuItem>
+            <MenuItem style={{ fontFamily: 'Google Sans'}} onClick={handleClose} component={Link} to="/regular-doctors">
+              Regular Doctors
+            </MenuItem>
+            <MenuItem style={{ fontFamily: 'Google Sans'}} onClick={handleClose} component={Link} to="/doctors-on-call">
+              Doctors on Call
+            </MenuItem>
+          </Menu>
+          <Button style={{ fontFamily: 'Google Sans'}}
             color="inherit"
             aria-controls="forms-menu"
             aria-haspopup="true"
@@ -113,7 +138,7 @@ function NavBar() {
             Forms
           </Button>
           {dropdownType === 'forms' && renderDropdownMenu()}
-          <Button
+          <Button style={{ fontFamily: 'Google Sans'}}
             color="inherit"
             aria-controls="records-menu"
             aria-haspopup="true"

@@ -1,6 +1,8 @@
 import React from 'react';
 import NavBar from '../ui/NavBar';
-import { TextField } from '@mui/material';
+//import { TextField } from '@mui/material';
+import { Paper } from "@mui/material";
+import "react-datepicker/dist/react-datepicker.css";
 
 function Home() {
     const handleSubmit = (event) => {
@@ -21,73 +23,80 @@ function Home() {
         });
       };
   return (
-    <section className="Home">  <NavBar />
-    <div style={{ paddingTop: '64px' }}>
-        <h4>Entry Card</h4>
+    <div>  
+      <NavBar />
+        <h2 style={{ fontSize: "22px", fontFamily: 'Google Sans, sans-serif' }}>Entry Card </h2>
         <form style={{ display: 'flex', flexDirection: 'column' }} onSubmit={handleSubmit}>
-          <label htmlFor="registrationDate">Registration Date:</label>
-          <TextField id="registrationDate" name="registrationDate" />
-
-          <label htmlFor="patientName">Patient Name:</label>
-          <input type="text" id="patientName" name="patientName" />
-
-          <label htmlFor="patientNumber">Patient Number:</label>
-          <input type="text" id="patientNumber" name="patientNumber" />
-
-          <label htmlFor="sex">Sex:</label>
+        <Paper elevation={24} style={{width:'800px', display: 'flex'}}>
+          <div style={{width: '370px', display: 'flex', flexDirection: 'column', margin: '20px'}}>
+          <h1 style={{ fontSize: "18px", fontFamily: 'Google Sans, sans-serif' }}>Basic Info</h1>
+          <label htmlFor="regDate" style={{ fontSize: '10px', textAlign: 'left' }}>Registration Date</label>
+          <input type="date" id="regDate" name="regDate"/>
+          <br></br>
+          <label htmlFor="patientName"></label>
+          <input type="text" placeholder="Full Name" id="patientName" name="patientName" />
+          <br></br>
+          <label htmlFor="patientNumber"></label>
+          <input type="text" placeholder="Patient Number" id="patientNumber" name="pat_no" /> 
+          <br></br>
+          <label htmlFor="sex"></label>
           <select id="sex" name="sex">
-          <option value="male">Select</option>
+          <option value="male">Select Sex</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
           </select>
+          <br></br>
+          <label htmlFor="dateOfBirth" style={{ fontSize: '10px', textAlign: 'left' }}>Birth date</label>
+          <input type="date" id="dateOfBirth" name="dateOfBirth"/>
+          <br></br>
+          <label htmlFor="age"></label>
+          <input type="number" placeholder="Age" id="age" name="age" />
+          <br></br>
+          <label htmlFor="phoneNumber"></label>
+          <input type="tel" placeholder="Phone Number" id="phoneNumber" name="phoneNumber" />
+          <br></br>
+          <label htmlFor="email"></label>
+          <input type="email" placeholder="Email" id="email" name="email" />
+          <br></br>
+          <label htmlFor="address"></label>
+          <input type="text" placeholder="Address" id="address" name="address" />
+          <br></br>
+          <label htmlFor="maritalStatus"></label>
+          <input type="text" placeholder="Marital Status" id="maritalStatus" name="maritalStatus" />
+          </div>
 
-          <label htmlFor="age">Age:</label>
-          <input type="number" id="age" name="age" />
+          <div style={{width: '370px', display: 'flex', flexDirection: 'column', margin: '20px'}}>
+          <h1 style={{ fontSize: "18px", fontFamily: 'Google Sans, sans-serif' }}>Emergency Contact</h1>
 
-          <label htmlFor="dateOfBirth">Date of Birth:</label>
-          <input type="date" id="dateOfBirth" name="dateOfBirth" />
+          <label htmlFor="emergencyFullName"></label>
+          <input type="text" placeholder="Full Name" id="emergencyFullName" name="emergencyFullName" />
+          <br></br>
+          <label htmlFor="relationship"></label>
+          <input type="text" placeholder="Relationship" id="relationship" name="relationship" />
+          <br></br>
+          <label htmlFor="emergencyContactNumber"></label>
+          <input type="tel" placeholder="Contact Number" id="emergencyContactNumber" name="emergencyContactNumber" />
+          <br></br>
+          <h1 style={{ fontSize: "18px", fontFamily: 'Google Sans, sans-serif' }}>Health History</h1>
 
-          <label htmlFor="phoneNumber">Phone Number:</label>
-          <input type="tel" id="phoneNumber" name="phoneNumber" />
-
-          <label htmlFor="email">Email:</label>
-          <input type="email" id="email" name="email" />
-
-          <label htmlFor="address">Address:</label>
-          <input type="text" id="address" name="address" />
-
-          <label htmlFor="maritalStatus">Marital Status:</label>
-          <input type="text" id="maritalStatus" name="maritalStatus" />
-
-          <h5>Emergency Contact</h5>
-
-          <label htmlFor="emergencyFullName">Emergency Contact Full Name:</label>
-          <input type="text" id="emergencyFullName" name="emergencyFullName" />
-
-          <label htmlFor="relationship">Relationship:</label>
-          <input type="text" id="relationship" name="relationship" />
-
-          <label htmlFor="emergencyContactNumber">Contact Number:</label>
-          <input type="tel" id="emergencyContactNumber" name="emergencyContactNumber" />
-
-          <h5>Health History</h5>
-
-          <label htmlFor="reasonForCheckup">Reason for Check-up:</label>
-          <input type="text" id="reasonForCheckup" name="reasonForCheckup" />
-
-          <label htmlFor="additionalNotes">Additional Notes:</label>
-          <textarea id="additionalNotes" name="additionalNotes"></textarea>
-
-          <label htmlFor="medications">Taking any medications, currently?</label>
-          <input type="text" id="medications" name="medications" />
-
-          <label htmlFor="department">Department:</label>
-          <input type="text" id="department" name="department" />
-
-          <button type="submit">REGISTER</button>
+          <label htmlFor="reasonForCheckup"></label>
+          <input type="text" placeholder="Reason for Check-up" id="reasonForCheckup" name="reasonForCheckup" />
+          <br></br>
+          <label htmlFor="additionalNotes"></label>
+          <textarea id="additionalNotes" placeholder="Additional Notes" name="additionalNotes"></textarea>
+          <br></br>
+          <label htmlFor="medications"></label>
+          <input type="text" placeholder="Taking any medications, currently?" id="medications" name="medications" />
+          <br></br>
+          <label htmlFor="department"></label>
+          <input type="text" placeholder="Department" id="department" name="department" />
+<br></br>
+          {/*</div><div style={{width:'100px', display: 'flex', alignItems: 'flex-end', margin: '20px'}}>*/}
+          <button style={{ fontSize: '20px', fontFamily: 'Google Sans, sans-serif', backgroundColor: 'lightgreen', fontWeight: 'bold'}} type="submit">Register</button>
+          </div>
+          </Paper>
         </form>
-      </div>
-    </section>
+    </div>
   )
 }
 

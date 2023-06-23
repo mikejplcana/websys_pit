@@ -11,6 +11,10 @@ import FormCheckUp from "../components/pages/FormCheckUp";
 import FormAdmission from "../components/pages/FormAdmission";
 import FormDischarge from "../components/pages/FormDischarge";
 import About from "../components/pages/About";
+import Departments from "../components/pages/Departments";
+import Rooms from "../components/pages/Rooms";
+import RegDoctors from "../components/pages/RegDoctors";
+import CallDoctors from "../components/pages/CallDoctors";
 
 
 export default function AppRoutes() {
@@ -28,6 +32,10 @@ export default function AppRoutes() {
         <Route path="/admission" element={<FormAdmission />} />
         <Route path="/discharge" element={<FormDischarge />} />
         <Route path="/about" element={<About />} />
+        <Route path="/departments" element={<Departments />} />
+        <Route path="/rooms" element={<Rooms />} />
+        <Route path="/regular-doctors" element={<RegDoctors />} />
+        <Route path="/doctors-on-call" element={<CallDoctors />} />
       </Routes>
     </BrowserRouter>
   );
