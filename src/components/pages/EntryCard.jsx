@@ -43,28 +43,29 @@ function EntryCard() {
         <h2>Entry Cards</h2>
         
       <TableContainer component={Paper}>
-      <table sx={{ maxWidth: 1920 }} aria-label="customized table">
-        <TableHead>
+      <table aria-label="customized table">
+        <TableHead sx={{ backgroundColor: "lightblue"}}>
           <TableRow>
-            <StyledTableCell >Registration Date</StyledTableCell>
-            <StyledTableCell align="right">Patient Name</StyledTableCell>
-            <StyledTableCell align="right">Sex</StyledTableCell>
-            <StyledTableCell align="right">Age</StyledTableCell>
-            <StyledTableCell align="right">Birthday</StyledTableCell>
-            <StyledTableCell align="right">Address</StyledTableCell>
-            <StyledTableCell align="right">Phone Number</StyledTableCell>
-            <StyledTableCell align="right">Patient Number</StyledTableCell>
-            <StyledTableCell align="right">Marital Status</StyledTableCell>
-            <StyledTableCell align="right">Email</StyledTableCell>
-            <StyledTableCell align="right">Emergency Contact Full Name</StyledTableCell>
-            <StyledTableCell align="right">Relationship</StyledTableCell>
-            <StyledTableCell align="right">Emergency Contact Phone Number</StyledTableCell>
-            <StyledTableCell align="right">Reason</StyledTableCell>
-            <StyledTableCell align="right">Additional Notes</StyledTableCell>
-            <StyledTableCell align="right">Medications</StyledTableCell>
-            
+          <th scope="col">Registration Date&nbsp;</th>
+          <th scope="col">Patient Name&nbsp;</th>
+          <th scope="col">Sex&nbsp;</th>
+          <th scope="col">Age&nbsp;</th>
+          <th scope="col">Birthday&nbsp;</th>
+          <th scope="col">Address&nbsp;</th>
+          <th scope="col">Phone Number&nbsp;</th>
+          <th scope="col">Patient Number&nbsp;</th>
+          <th scope="col">Marital Status&nbsp;</th>
+          <th scope="col">Email&nbsp;</th>
+          <th scope="col">Emergency Contact&nbsp;</th>
+          <th scope="col">Relationship&nbsp;</th>
+          <th scope="col">Emergency Contact Full Name&nbsp;</th>
+          <th scope="col">Reason&nbsp;</th>
+          <th scope="col">Additional Notes&nbsp;</th>
+          <th scope="col">Medications&nbsp;</th>
+          
           </TableRow>
         </TableHead>
+
         <tbody>
           {data.map((entry, index) => (
             <StyledTableRow key={index}>
@@ -86,6 +87,7 @@ function EntryCard() {
               <td>{entry.medications}</td>
             </StyledTableRow>
           ))}
+          
         </tbody>
         </table>
       </TableContainer>

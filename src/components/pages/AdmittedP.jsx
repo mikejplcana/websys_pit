@@ -1,5 +1,31 @@
 import React, { useState, useEffect } from 'react';
+import { styled } from '@mui/material/styles';
 import NavBar from '../ui/NavBar';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+  },
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  '&:nth-of-type(odd)': {
+    backgroundColor: theme.palette.action.hover,
+  },
+  // hide last border
+  '&:last-child td, &:last-child th': {
+    border: 0,
+  },
+}));
 
 export default function Records() {
   const [patients, setPatients] = useState([]);
@@ -15,27 +41,30 @@ export default function Records() {
   return (
     <div>
       <NavBar />
-      <h1>Admitted Patients</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Patient No</th>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Sex</th>
-            <th>Address</th>
-            <th>Phone Number</th>
-            <th>Admitted On</th>
-            <th>Condition On</th>
-            <th>Advance Payment</th>
-            <th>Payment Mode</th>
-            <th>Room No</th>
-            <th>Doctor No</th>
-          </tr>
-        </thead>
+      <h2>Admitted Patients</h2>
+
+      <TableContainer component={Paper}>
+      <table aria-label="customized table">
+        <TableHead sx={{ backgroundColor: "lightblue"}}>
+          <TableRow>
+            <th scope='col'>Patient No&nbsp;</th>
+            <th scope='col'>Name&nbsp;</th>
+            <th scope='col'>Age&nbsp;</th>
+            <th scope='col'>Sex&nbsp;</th>
+            <th scope='col'>Address&nbsp;</th>
+            <th scope='col'>Phone Number&nbsp;</th>
+            <th scope='col'>Admitted On&nbsp;</th>
+            <th scope='col'>Condition On&nbsp;</th>
+            <th scope='col'>Advance Payment&nbsp;</th>
+            <th scope='col'>Payment Mode&nbsp;</th>
+            <th scope='col'>Room No&nbsp;</th>
+            <th scope='col'>Doctor No&nbsp;</th>
+          </TableRow>
+          </TableHead>
         <tbody>
+
           {patients.map(patient => (
-            <tr key={patient.pat_no}>
+            <StyledTableRow key={patient.pat_no}>
               <td>{patient.pat_no}</td>
               <td>{patient.pat_name}</td>
               <td>{patient.pat_age}</td>
@@ -48,10 +77,11 @@ export default function Records() {
               <td>{patient.mode_pymt}</td>
               <td>{patient.room_no}</td>
               <td>{patient.doc_no}</td>
-            </tr>
+            </StyledTableRow>
           ))}
         </tbody>
       </table>
+      </TableContainer>
     </div>
   );
 }

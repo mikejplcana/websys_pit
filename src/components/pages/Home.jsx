@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from '../ui/NavBar';
+import { TextField } from '@mui/material';
 
 function Home() {
     const handleSubmit = (event) => {
@@ -20,12 +21,12 @@ function Home() {
         });
       };
   return (
-    <div> <NavBar />
+    <section className="Home">  <NavBar />
     <div style={{ paddingTop: '64px' }}>
         <h4>Entry Card</h4>
         <form style={{ display: 'flex', flexDirection: 'column' }} onSubmit={handleSubmit}>
           <label htmlFor="registrationDate">Registration Date:</label>
-          <input type="text" id="registrationDate" name="registrationDate" />
+          <TextField id="registrationDate" name="registrationDate" />
 
           <label htmlFor="patientName">Patient Name:</label>
           <input type="text" id="patientName" name="patientName" />
@@ -86,7 +87,7 @@ function Home() {
           <button type="submit">REGISTER</button>
         </form>
       </div>
-    </div>
+    </section>
   )
 }
 

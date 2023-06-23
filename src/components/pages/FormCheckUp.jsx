@@ -34,6 +34,7 @@ const CheckUpForm = () => {
     <div>
         <NavBar />
         <div style={{ paddingTop: '64px' }}>
+
       <h2>CHECK UP FORM</h2>
       <form style={{ display: 'flex', flexDirection: 'column' }} onSubmit={handleSubmit}>
         <label htmlFor="checkUpDate">Check-up Date:</label>
@@ -89,7 +90,14 @@ const CheckUpForm = () => {
           onChange={(e) => setDoctorNumber(e.target.value)}
           required
         />
+        
 
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    </div>
+
+    
   );
 };
 
