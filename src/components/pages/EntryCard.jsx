@@ -1,5 +1,31 @@
 import React, { useEffect, useState } from 'react';
+import { styled } from '@mui/material/styles';
 import NavBar from '../ui/NavBar';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+  },
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  '&:nth-of-type(odd)': {
+    backgroundColor: theme.palette.action.hover,
+  },
+  // hide last border
+  '&:last-child td, &:last-child th': {
+    border: 0,
+  },
+}));
 
 function EntryCard() {
   const [data, setData] = useState([]);
@@ -15,30 +41,33 @@ function EntryCard() {
     <div>
         <NavBar />
         <h2>Entry Cards</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Registration Date</th>
-            <th>Patient Name</th>
-            <th>Sex</th>
-            <th>Age</th>
-            <th>Birthday</th>
-            <th>Address</th>
-            <th>Phone Number</th>
-            <th>Patient Number</th>
-            <th>Marital Status</th>
-            <th>Email</th>
-            <th>Emergency Contact Full Name</th>
-            <th>Relationship</th>
-            <th>Emergency Contact Phone Number</th>
-            <th>Reason</th>
-            <th>Additional Notes</th>
-            <th>Medications</th>
-          </tr>
-        </thead>
+        
+      <TableContainer component={Paper}>
+      <table sx={{ maxWidth: 1920 }} aria-label="customized table">
+        <TableHead>
+          <TableRow>
+            <StyledTableCell >Registration Date</StyledTableCell>
+            <StyledTableCell align="right">Patient Name</StyledTableCell>
+            <StyledTableCell align="right">Sex</StyledTableCell>
+            <StyledTableCell align="right">Age</StyledTableCell>
+            <StyledTableCell align="right">Birthday</StyledTableCell>
+            <StyledTableCell align="right">Address</StyledTableCell>
+            <StyledTableCell align="right">Phone Number</StyledTableCell>
+            <StyledTableCell align="right">Patient Number</StyledTableCell>
+            <StyledTableCell align="right">Marital Status</StyledTableCell>
+            <StyledTableCell align="right">Email</StyledTableCell>
+            <StyledTableCell align="right">Emergency Contact Full Name</StyledTableCell>
+            <StyledTableCell align="right">Relationship</StyledTableCell>
+            <StyledTableCell align="right">Emergency Contact Phone Number</StyledTableCell>
+            <StyledTableCell align="right">Reason</StyledTableCell>
+            <StyledTableCell align="right">Additional Notes</StyledTableCell>
+            <StyledTableCell align="right">Medications</StyledTableCell>
+            
+          </TableRow>
+        </TableHead>
         <tbody>
           {data.map((entry, index) => (
-            <tr key={index}>
+            <StyledTableRow key={index}>
               <td>{entry.reg_date}</td>
               <td>{entry.pat_name}</td>
               <td>{entry.sex}</td>
@@ -55,10 +84,11 @@ function EntryCard() {
               <td>{entry.reason}</td>
               <td>{entry.add_notes}</td>
               <td>{entry.medications}</td>
-            </tr>
+            </StyledTableRow>
           ))}
         </tbody>
-      </table>
+        </table>
+      </TableContainer>
     </div>
   );
 }

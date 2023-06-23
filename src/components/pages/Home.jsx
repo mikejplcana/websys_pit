@@ -35,6 +35,7 @@ function Home() {
 
           <label htmlFor="sex">Sex:</label>
           <select id="sex" name="sex">
+          <option value="male">Select</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
           </select>

@@ -101,7 +101,9 @@ function NavBar() {
           <Button color="inherit" component={Link} to="/">
             Home
           </Button>
-          <Button color="inherit">About XYZH</Button>
+          <Button color="inherit" component={Link} to="/about">
+  About XYZH
+</Button>
           <Button
             color="inherit"
             aria-controls="forms-menu"
