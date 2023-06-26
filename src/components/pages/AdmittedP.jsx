@@ -32,7 +32,7 @@ export default function Records() {
 
   useEffect(() => {
     // Fetch data from the PHP file
-    fetch("http://localhost/getData.php")
+    fetch("http://localhost/getDataAdmittedP.php")
       .then(response => response.json())
       .then(data => setPatients(data))
       .catch(error => console.log(error));
@@ -48,11 +48,6 @@ export default function Records() {
         <TableHead sx={{ backgroundColor: "lightblue"}}>
           <TableRow>
             <th scope='col'>Patient No&nbsp;</th>
-            <th scope='col'>Name&nbsp;</th>
-            <th scope='col'>Age&nbsp;</th>
-            <th scope='col'>Sex&nbsp;</th>
-            <th scope='col'>Address&nbsp;</th>
-            <th scope='col'>Phone Number&nbsp;</th>
             <th scope='col'>Admitted On&nbsp;</th>
             <th scope='col'>Condition On&nbsp;</th>
             <th scope='col'>Advance Payment&nbsp;</th>
@@ -66,11 +61,6 @@ export default function Records() {
           {patients.map(patient => (
             <StyledTableRow key={patient.pat_no}>
               <td>{patient.pat_no}</td>
-              <td>{patient.pat_name}</td>
-              <td>{patient.pat_age}</td>
-              <td>{patient.sex}</td>
-              <td>{patient.address}</td>
-              <td>{patient.ph_no}</td>
               <td>{patient.admtd_on}</td>
               <td>{patient.cond_on}</td>
               <td>{patient.adv_pymt}</td>

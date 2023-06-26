@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 function NavBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [dropdownType, setDropdownType] = React.useState(null);
+  const [showNavBar, setShowNavBar] = React.useState(false);
 
   const handleClick = (event, type) => {
     setAnchorEl(event.currentTarget);
@@ -17,6 +18,14 @@ function NavBar() {
   const handleClose = () => {
     setAnchorEl(null);
     setDropdownType(null);
+  };
+
+  const handleMouseEnter = () => {
+    setShowNavBar(true);
+  };
+
+  const handleMouseLeave = () => {
+    setShowNavBar(false);
   };
 
   const renderDropdownMenu = () => {
@@ -93,15 +102,14 @@ function NavBar() {
 
   return (
     <div>
-      <AppBar position="fixed">
+      <AppBar position="fixed" style={{ backgroundColor: 'lightsteelblue' }}>
         <Toolbar>
           <Button color="inherit" component={Link} to="/">
-          <img src="public/logozoomed.png" alt="Home" style={{ width: '40px', height: '40px' }} />
+          <img src="public/newlogocropped.png" alt="Home" style={{width: '175px', height: '60px' }} />
           </Button>
-          <Typography variant="h6" style={{ fontFamily: 'Google Sans', flexGrow: 1, textAlign: 'left' }}>
-            XYZ Hospital Management System
+          <Typography variant="h6" style={{ color:'darkslateblue', fontFamily: 'Google Sans', flexGrow: 1, textAlign: 'left', fontWeight: 'bold'}}>
           </Typography>
-          <Button style={{ fontFamily: 'Google Sans'}}
+          <Button style={{color:'darkslateblue', fontFamily: 'Google Sans', fontWeight: 'bold'}}
             color="inherit"
             aria-controls="about-menu"
             aria-haspopup="true"
@@ -129,16 +137,16 @@ function NavBar() {
               Doctors on Call
             </MenuItem>
           </Menu>
-          <Button style={{ fontFamily: 'Google Sans'}}
+          <Button style={{ color:'darkslateblue', fontFamily: 'Google Sans', fontWeight: 'bold'}}
             color="inherit"
             aria-controls="forms-menu"
             aria-haspopup="true"
             onClick={(event) => handleClick(event, 'forms')}
           >
             Forms
-          </Button>
+          </Button >
           {dropdownType === 'forms' && renderDropdownMenu()}
-          <Button style={{ fontFamily: 'Google Sans'}}
+          <Button style={{ color:'darkslateblue', fontFamily: 'Google Sans', fontWeight: 'bold'}}
             color="inherit"
             aria-controls="records-menu"
             aria-haspopup="true"
